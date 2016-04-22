@@ -1,22 +1,14 @@
-
-
 /* ==========================================================================
-   Author's custom styles
+   Custom styles
    ========================================================================== */
+header {
+  background-color: #08D9D6;
+  color: #EAEAEA;
+  height: 200px; }
 
+footer {
+  background-color: #252A34;
+  padding: 20px;
+  color: #EAEAEA; }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*# sourceMappingURL=main.css.map */
