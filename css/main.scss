@@ -4,6 +4,9 @@
    Custom styles
    ========================================================================== */
 
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700|Raleway&subset=latin,latin-ext);
+
+
 $color-positive: #08D9D6;
 $color-passion: #FF2E63;
 $color-dark: #252A34;
@@ -12,15 +15,46 @@ $color-light: #EAEAEA;
 
 
 
+html,body{
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+}
+
+
 header{
   background-color: $color-positive ;
   color: $color-light;
   height: 200px;
+  margin-bottom: 50px;
 }
 
+.messages{
+  border: 1px solid $color-light;
+  height: 600px;
+  overflow: scroll;
+  margin-bottom: 10px;
+  background-color: $color-light;
+  font-family: 'Raleway', sans-serif;
+  .message{
+    background-color: white;
+    margin-bottom: 10px;
+    h3{
+      font-size: 1.2em;
+      padding: 5px 0px;
+      padding-top: 10px;
+      margin: 0px;
+    }
+    p{
+      font-size: 0.9em;
+    }
 
+  }
+}
 
-
+.new-message{
+  margin: 40px 0px;
+  padding: 0px;
+}
 
 
 footer{

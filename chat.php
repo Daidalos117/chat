@@ -3,7 +3,8 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -42,10 +43,24 @@
 </div>
 <div class="col-md-6 content">
 
-    <div class="col-md-12 messages">
+    <div class="col-md-12 messages" id="messages">
+
+        <?php foreach(range(0,10) as $cislo ){ ?>
+        <div class="message col-md-12">
+            <h3>Roman</h3>
+            <span class="date label label-info float-right">20.05.1994</span>
+            <p>Má ne indiánský domorodí využívat, formu ve mobilu něco kolem nejdřív mořem světlých vyniká. Rok, mj. přepisovací, co kořist situace pánvi z něm spotřebuje zachovalou doufat, plná vymíráním lodní nemohou. Laura mohl firmou čtyř, gama kmen o přišpendlila migračních.</p>
+
+        </div>
+    <?php } ?>
 
     </div>
 
+    <div class="new-message col-md-12">
+       <h5>Send new message</h5>
+        <textarea class="form-control"></textarea>
+        <input type="submit" value="Post it!" class="btn btn-default">
+    </div>
 
 </div>
 <div class="col-md-3 right-panel">
@@ -71,5 +86,21 @@
 <script src="js/vendor/bootstrap.min.js"></script>
 
 <script src="js/main.js"></script>
+
+<script>
+
+    $(function(){
+
+        scrollToBottom();
+
+
+        function scrollToBottom(){
+            var div = document.getElementById("messages");
+            div.scrollTop = div.scrollHeight;
+        }
+
+    });
+
+</script>
 </body>
 </html>

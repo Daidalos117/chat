@@ -28,6 +28,11 @@ class Databaze {
         return self::$spojeni;
     }
 
+    /**
+     * @param $sql
+     * @param array $parametry
+     * @return PDOStatement
+     */
     public static function dotaz($sql, $parametry = array()) {
         $dotaz = self::$spojeni->prepare($sql);
         $dotaz->execute($parametry);

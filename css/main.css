@@ -1,10 +1,38 @@
 /* ==========================================================================
    Custom styles
    ========================================================================== */
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700|Raleway&subset=latin,latin-ext);
+html, body {
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif; }
+
 header {
   background-color: #08D9D6;
   color: #EAEAEA;
-  height: 200px; }
+  height: 200px;
+  margin-bottom: 50px; }
+
+.messages {
+  border: 1px solid #EAEAEA;
+  height: 600px;
+  overflow: scroll;
+  margin-bottom: 10px;
+  background-color: #EAEAEA;
+  font-family: 'Raleway', sans-serif; }
+  .messages .message {
+    background-color: white;
+    margin-bottom: 10px; }
+    .messages .message h3 {
+      font-size: 1.2em;
+      padding: 5px 0px;
+      padding-top: 10px;
+      margin: 0px; }
+    .messages .message p {
+      font-size: 0.9em; }
+
+.new-message {
+  margin: 40px 0px;
+  padding: 0px; }
 
 footer {
   background-color: #252A34;

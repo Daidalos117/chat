@@ -14,7 +14,12 @@ function nactiTridu($trida)
 }
 
 spl_autoload_register("nactiTridu");
-
-\php_error\reportErrors();
+require('php_classes/php_error.php' );
+php_error\reportErrors();
 
 Databaze::pripoj('localhost', 'root', 'root', 'chat');
+
+$roomsManager = new RoomsManager();
+$rooms = $roomsManager->getRooms();
+
+var_dump($rooms);
