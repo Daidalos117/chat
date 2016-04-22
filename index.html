@@ -25,14 +25,33 @@
         <![endif]-->
 
         <div class="col-md-4 col-md-offset-4" id="login">
-            <H2>Login</H2>
+            <H2>Sign in</H2>
             <form action="login.php" method="post">
-                <input type="text" class="form-control" name="user">
-                <input type="submit" class="btn btn-primary">
+                <label for="user">Username</label>
+                    <input type="text" class="form-control" name="user" id="user">
+                <label for="user">Password</label>
+                    <input type="password" class="form-control" name="pass">
+                <input type="submit" class="btn btn-primary pull-right" value="Log in!">
             </form>
+
+            <span>Or <a href="" class="sign-up-btn">sign up?</a></span>
+            <div class="sign-up ">
+                <form class="register-form">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" class="form-control">
+                    <label for="pass">Password</label>
+                    <input type="password" name="pass" id="pass" class="form-control">
+                    <input type="submit" class="btn btn-warning" value="Register" id="register">
+                </form>
+
+             </div>
         </div>
 
-
+        <div class="container">
+            <div class="alert-wrapper col-md-6 col-md-offset-3">
+                <div class="alert  " role="alert"> SSS </div>
+            </div>
+        </div>
 
       <footer class="col-md-12">
         <p>&copy; Company 2015</p>
@@ -43,5 +62,55 @@
         <script src="js/vendor/bootstrap.min.js"></script>
 
         <script src="js/main.js"></script>
+        <script>
+            $(function(){
+
+                $(".sign-up-btn").on("click",function(e){
+                    e.preventDefault();
+                    $(".sign-up").css("visibility","visible !important");
+                    $(".sign-up").slideToggle(1000);
+
+                });
+
+                $('.register-form').submit(function(e) {
+                    e.preventDefault();
+
+                    var formData = $('.register-form').serialize();
+
+
+                    $.ajax({
+                                type        : 'POST',
+                                url         : 'register.php',
+                                data        : formData,
+                                dataType    : 'json'
+                            })
+
+                            .done(function(data) {
+                                $alert = $(".alert");
+                                $alert.removeClass("alert-danger");
+                                $alert.removeClass("alert-success");
+                                if(data.error){
+                                    $alert.addClass("alert-danger");
+                                    $alert.html(data.error);
+                                }
+                                if(data.succes){
+                                    $alert.addClass("alert-success");
+                                    $alert.html(data.succes);
+                                    $('.register-form')[0].reset();
+                                    $(".sign-up").slideUp(500);
+                                }
+
+                                $(".alert-wrapper").slideDown(500);
+                                setTimeout(function(){
+                                    $(".alert-wrapper").slideUp(500);
+                                }, 3000);
+                            });
+
+                });
+
+
+            });
+
+        </script>
     </body>
 </html>

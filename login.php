@@ -7,6 +7,37 @@
  */
 
 session_start();
-$_SESSION["user"] = $_POST["user"];
 
-header("Location: chat.php");
+
+
+mb_internal_encoding("UTF-8");
+
+function nactiTridu($trida)
+{
+    require("php_classes/$trida.php");
+}
+
+spl_autoload_register("nactiTridu");
+
+
+
+Databaze::pripoj('localhost', 'root', 'root', 'chat');
+
+
+
+$username = $_POST["user"];
+$password = $_POST["pass"];
+
+
+
+$userManager = new UsersManager();
+
+$user = $userManager->login($username,$password);
+if($user){
+    $_SESSION["user"] = $user[UsersManager::USERNAME_COLUMN];
+    $_SESSION["ID"] = $user["ID"];
+    header("Location: chat.php");
+}else{
+    header("Location: index.html?error=bad");
+}
+

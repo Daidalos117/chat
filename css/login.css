@@ -6,6 +6,16 @@ html, body {
   padding: 30px;
   border: 1px solid #eeeeee; }
 
+.sign-up {
+  display: none;
+  margin-top: 30px;
+  border-top: 1px solid #eee; }
+
+.alert-wrapper {
+  position: absolute;
+  top: 5px;
+  display: none; }
+
 footer {
   position: absolute !important;
   bottom: 0px;

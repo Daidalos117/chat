@@ -1,4 +1,6 @@
-<?php session_start() ?>
+<?php session_start();
+if(!isset($_SESSION["ID"]))     header("Location: index.html?error=bad");
+?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -27,7 +29,8 @@
 <![endif]-->
 
 <header class="col-md-12">
-    <h1>Chat app</h1>
+    <h1 class="text-center">CHAT</h1>
+    <h3>Room: </h3>
 </header>
 <div class="col-md-3 left-panel">
 

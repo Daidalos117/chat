@@ -26,7 +26,17 @@ header{
   color: $color-light;
   height: 200px;
   margin-bottom: 50px;
+  h1{
+    font-size: 4em;
+    font-weight: 700;
+  }
+  h3{
+    text-align: center;
+    color: darken($color-positive,10%);
+  }
 }
+
+
 
 .messages{
   border: 1px solid $color-light;
