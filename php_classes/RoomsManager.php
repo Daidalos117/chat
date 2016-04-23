@@ -19,8 +19,8 @@ class RoomsManager
      */
     public function getRooms(){
 
-       $dotaz = Databaze::dotaz("SELECT * FROM ".self::TABLE_NAME."; ");
-        return $dotaz->fetchAll(PDO::FETCH_ASSOC);
+        $query = Databaze::dotaz("SELECT * FROM ".self::TABLE_NAME."; ");
+        return $query->fetchAll(PDO::FETCH_ASSOC);
 
     }
 
@@ -29,7 +29,7 @@ class RoomsManager
      * @return mixed
      */
     public function getRoom($id){
-        $dotaz = Databaze::dotaz("SELECT * FROM ".self::TABLE_NAME." WHERE ID = ?",array($id));
-        return $dotaz->fetch(PDO::FETCH_ASSOC);
+        $query = Databaze::dotaz("SELECT * FROM ".self::TABLE_NAME." WHERE ID = ?",array($id));
+        return $query->fetch(PDO::FETCH_ASSOC);
     }
 }

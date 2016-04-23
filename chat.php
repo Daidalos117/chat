@@ -1,7 +1,7 @@
 <?php
 require_once "include.inc";
-
-if(!isset($_SESSION["ID"]))     header("Location: index.html?error=bad");
+$userManager = new UsersManager();
+if(!isset($_SESSION["ID"]) and $userManager->getUserByHash($_SESSION["ID"]))     header("Location: index.html?error=bad");
 if(!isset($_GET["room"])){
     $room = array("id" => 1);
 }else{
@@ -9,15 +9,13 @@ if(!isset($_GET["room"])){
 }
 $roomManager = new RoomsManager();
 $room = $roomManager->getRoom($room["id"]);
+if(!$room)  header("Location: 404.html");
+$_SESSION["room"] = $room;
 
 
 ?>
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html"> <!--<![endif]-->
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -29,6 +27,7 @@ $room = $roomManager->getRoom($room["id"]);
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
     <!--[if lt IE 9]>
     <script src="js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
@@ -41,7 +40,7 @@ $room = $roomManager->getRoom($room["id"]);
 
 <header class="col-md-12">
     <div class="header-wrapper">
-        <h1 class="text-center">CHAT</h1>
+        <h1 class="text-center"><i class="fa fa-comment" aria-hidden="true"></i> CHAT</h1>
         <h3><strong><?php echo $room[RoomsManager::COLUMN_NAME] ?></strong> </h3>
     </div>
 </header>
@@ -49,6 +48,7 @@ $room = $roomManager->getRoom($room["id"]);
 
     <div class="panel panel-primary">
         <div class="panel-heading">
+            <i class="fa fa-users" aria-hidden="true"></i>
             Logged users
         </div>
         <div class="panel-body">
@@ -60,6 +60,17 @@ $room = $roomManager->getRoom($room["id"]);
 <div class="col-md-6 content">
 
     <div class="col-md-12 messages" id="messages">
+        <div class="message hidden col-md-12" data-id="">
+            <div class="col-md-1">
+                <img src="https://api.adorable.io/avatars/50/@adorable.io.png" alt="avatar" class="img-rounded">
+            </div>
+            <div class="col-md-11">
+            <h3></h3>
+                <span class="date label label-info pull-right" data-toggle="tooltip" data-placement="top" title=""></span>
+                <p></p>
+            </div>
+        </div>
+
 
         <?php
         $chatManager = new ChatManager();
@@ -67,12 +78,20 @@ $room = $roomManager->getRoom($room["id"]);
 
         foreach($chats as $message ){ ?>
         <div class="message col-md-12" data-id="<?php echo $message["ID"] ?>">
-
-            <h3><?php echo $message[UsersManager::USERNAME_COLUMN] ?></h3>
-            <?php $date = new DateTime($message[ChatManager::COLUMN_TME]) ?>
-            <span class="date label label-info pull-right" data-toggle="tooltip" data-placement="top" title="<?php echo $date->format("d.m.Y") ?>"><?php echo $date->format("H:i:s") ?></span>
-            <p><?php echo $message[ChatManager::COLUMN_MESSAGE] ?></p>
-
+            <div class="col-md-1 img">
+                <img src="https://api.adorable.io/avatars/44/<?php echo $message[UsersManager::USERNAME_COLUMN] ?>@adorable.io.png" alt="avatar" class="img-circle">
+            </div>
+            <div class="col-md-11 mes">
+                <h3><?php echo $message[UsersManager::USERNAME_COLUMN] ?></h3>
+                <?php $date = new DateTime($message[ChatManager::COLUMN_TME]) ?>
+                <span class="date pull-right" data-toggle="tooltip" data-placement="top" title="<?php echo $date->format("d.m.Y") ?>">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <span class="actual-time">
+                        <?php echo $date->format("H:i:s") ?>
+                    </span>
+                </span>
+                <p><?php echo $message[ChatManager::COLUMN_MESSAGE] ?></p>
+            </div>
         </div>
     <?php } ?>
 
@@ -82,7 +101,7 @@ $room = $roomManager->getRoom($room["id"]);
        <h5>Send new message</h5>
         <form id="newMessage">
             <textarea class="form-control" name="message"></textarea>
-            <input type="hidden" value="<?php echo $room["ID"] ?>" name="room">
+            <input type="hidden" value="<?php echo $room["ID"] ?>" name="room" id="room-id">
             <input type="submit" value="Post it!" class="btn btn-default" id="sendMessage">
 
         </form>
@@ -93,6 +112,7 @@ $room = $roomManager->getRoom($room["id"]);
 
     <div class="panel panel-primary">
         <div class="panel-heading">
+            <i class="fa fa-sitemap" aria-hidden="true"></i>
             Rooms
         </div>
         <div class="panel-body">
@@ -117,7 +137,18 @@ $room = $roomManager->getRoom($room["id"]);
 
     $(function(){
 
+        console.log(  $(".message.hidden").clone() );
+
         scrollToBottom();
+
+        setInterval(function(){
+            getMessages();
+        },10000 );
+
+
+
+
+
 
         $('#newMessage').submit(function(e) {
             e.preventDefault();
@@ -133,8 +164,12 @@ $room = $roomManager->getRoom($room["id"]);
 
                 .done(function(data) {
 
-                    if(data == true){
+                    if(data ){
                         $('#newMessage')[0].reset();
+                        var date = new Date();
+                        data.date = date.getDate()+"."+date.getMonth()+"."+date.getYear();
+                        data.time = date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+                        addMessage(data);
                     }
 
 
@@ -165,13 +200,51 @@ $room = $roomManager->getRoom($room["id"]);
 
 
         function addMessage(message){
+            var last = findLastMessage();
+            var template = $(".message.hidden").clone();
+            template.removeClass("hidden");
+            template.children("h3").html(message.user);
+            template.children("p").html(message.message);
+            template.children("span").html(message.time);
+            template.data("id",message.ID);
+            template.children("span").data("original-title",message.date);
+
+            last.hide().after(template).fadeIn(500);
+            scrollToBottom(200);
 
         }
 
+        function getMessages(){
 
-        function scrollToBottom(){
-            var div = document.getElementById("messages");
-            div.scrollTop = div.scrollHeight;
+            var lastId = findLastMessage().data("id");
+            var data = {};
+            data.id = lastId;
+            $.ajax({
+                    type        : 'POST',
+                    url         : 'messages.php',
+                    data        : data,
+                    dataType    : 'json'
+                })
+
+                .done(function(data) {
+                    if(data){
+
+                    }
+                });
+        }
+
+
+
+
+        function findLastMessage(){
+            return $(".message").last();
+        }
+
+        function scrollToBottom(time = 0){
+            setTimeout(function(){
+                var div = document.getElementById("messages");
+                div.scrollTop = div.scrollHeight;
+            },time);
         }
 
         /* Turn on Bootstrap Tooltip for date */

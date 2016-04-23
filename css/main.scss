@@ -27,7 +27,8 @@ header{
   background:{
     image: url("../img/startup-photos.jpg");
     size: cover;
-    position: center;
+    position: 0 400px ;
+    attachment: fixed;
   }
   font-family: 'Raleway', sans-serif;
   padding: 0px !important;
@@ -67,25 +68,52 @@ header{
 }
 
 .messages{
-  border: 1px solid $color-light;
+
   height: 600px;
   overflow: scroll;
   margin-bottom: 10px;
-  background-color: $color-light;
+
   font-family: 'Raleway', sans-serif;
   .message{
     background-color: white;
     margin-bottom: 10px;
+    border: 0.5px solid $color-light;
+    border-radius: 4px;
+    transition: 400ms;
+    padding: {
+      top: 12px;
+      bottom: 12px;
+    };
+
     h3{
-      font-size: 1.2em;
+      font-size: 1.1em;
+      color: $color-passion;
       padding: 5px 0px;
-      padding-top: 10px;
+
       margin: 0px;
+      display: inline-block;
     }
     p{
+      padding-left: 10px;
       font-size: 0.9em;
     }
+    .img{
+      padding: 0px;
+      padding-top: 0px;
+    }
+    .mes{
+      padding-left: 5px;
+    }
 
+    .date{
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.8em;
+      color: darken($color-light,5%);
+    }
+
+    &:hover{
+      background-color: lighten($color-light,7%) ;
+    }
   }
 }
 
