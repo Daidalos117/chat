@@ -1,4 +1,4 @@
-<?php session_start();
+<?php
 require_once "include.inc";
 
 if(!isset($_SESSION["ID"]))     header("Location: index.html?error=bad");
@@ -66,13 +66,12 @@ $room = $roomManager->getRoom($room["id"]);
         $chats = $chatManager->getMessagesByRoom($room["ID"]);
 
         foreach($chats as $message ){ ?>
-        <div class="message col-md-12">
+        <div class="message col-md-12" data-id="<?php echo $message["ID"] ?>">
+
             <h3><?php echo $message[UsersManager::USERNAME_COLUMN] ?></h3>
-            <?php $date = new DateTime($message[ChatManager::COLUMN_TME]);
-            echo $date->format("d.m.Y")
-                ?>
-            <span class="date label label-info pull-right"><?php echo $date->format("H:i:s") ?></span>
-            <p>Má ne indiánský domorodí využívat, formu ve mobilu něco kolem nejdřív mořem světlých vyniká. Rok, mj. přepisovací, co kořist situace pánvi z něm spotřebuje zachovalou doufat, plná vymíráním lodní nemohou. Laura mohl firmou čtyř, gama kmen o přišpendlila migračních.</p>
+            <?php $date = new DateTime($message[ChatManager::COLUMN_TME]) ?>
+            <span class="date label label-info pull-right" data-toggle="tooltip" data-placement="top" title="<?php echo $date->format("d.m.Y") ?>"><?php echo $date->format("H:i:s") ?></span>
+            <p><?php echo $message[ChatManager::COLUMN_MESSAGE] ?></p>
 
         </div>
     <?php } ?>
@@ -81,8 +80,12 @@ $room = $roomManager->getRoom($room["id"]);
 
     <div class="new-message col-md-12">
        <h5>Send new message</h5>
-        <textarea class="form-control"></textarea>
-        <input type="submit" value="Post it!" class="btn btn-default">
+        <form id="newMessage">
+            <textarea class="form-control" name="message"></textarea>
+            <input type="hidden" value="<?php echo $room["ID"] ?>" name="room">
+            <input type="submit" value="Post it!" class="btn btn-default" id="sendMessage">
+
+        </form>
     </div>
 
 </div>
@@ -115,6 +118,55 @@ $room = $roomManager->getRoom($room["id"]);
     $(function(){
 
         scrollToBottom();
+
+        $('#newMessage').submit(function(e) {
+            e.preventDefault();
+
+            var formData = $('#newMessage').serialize();
+
+            $.ajax({
+                    type        : 'POST',
+                    url         : 'new-message.php',
+                    data        : formData,
+                    dataType    : 'json'
+                })
+
+                .done(function(data) {
+
+                    if(data == true){
+                        $('#newMessage')[0].reset();
+                    }
+
+
+                    /*
+                    $alert = $(".alert");
+                    $alert.removeClass("alert-danger");
+                    $alert.removeClass("alert-success");
+                    if(data.error){
+                        $alert.addClass("alert-danger");
+                        $alert.html(data.error);
+                    }
+                    if(data.succes){
+                        $alert.addClass("alert-success");
+                        $alert.html(data.succes);
+                        $('.register-form')[0].reset();
+                        $(".sign-up").slideUp(500);
+                    }
+
+                    $(".alert-wrapper").slideDown(500);
+                    setTimeout(function(){
+                        $(".alert-wrapper").slideUp(500);
+                    }, 3000);
+                    */
+
+                });
+
+        });
+
+
+        function addMessage(message){
+
+        }
 
 
         function scrollToBottom(){

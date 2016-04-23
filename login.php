@@ -35,7 +35,7 @@ $userManager = new UsersManager();
 $user = $userManager->login($username,$password);
 if($user){
     $_SESSION["user"] = $user[UsersManager::USERNAME_COLUMN];
-    $_SESSION["ID"] = $user["ID"];
+    $_SESSION["ID"] = $user[UsersManager::LOGIN_HASH_COLUMN];
     header("Location: chat.php");
 }else{
     header("Location: index.html?error=bad");

@@ -8,6 +8,9 @@
 
 class Databaze {
 
+    /**
+     * @var PDO
+     */
     private static $spojeni;
 
     private static $nastaveni = Array(
@@ -39,4 +42,19 @@ class Databaze {
         return $dotaz;
     }
 
+    /**
+     * Get last error
+     * @return array
+     */
+    public static function getError(){
+        return self::$spojeni->errorInfo();
+    }
+
+    /**
+     * Get last inserted ID
+     * @return string
+     */
+    public static function getLastID(){
+        return self::$spojeni->lastInsertId();
+    }
 }

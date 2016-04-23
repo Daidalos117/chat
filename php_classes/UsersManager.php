@@ -10,7 +10,9 @@ class UsersManager {
     const TABLE_NAME = "users",
         USERNAME_COLUMN = "username",
         PASSWORD_COLUMN = "password",
-        ROLE_COLUMN = "role_ID";
+        ROLE_COLUMN = "role_ID",
+        LOGIN_HASH_COLUMN = "login_hash",
+        SALT = "1j9/32";
 
 
     /**
@@ -35,8 +37,10 @@ class UsersManager {
     public function addUser($params){
 
         $params[1] = password_hash($params[1],PASSWORD_DEFAULT);
-        $users = Databaze::dotaz("INSERT INTO ".self::TABLE_NAME." (".self::USERNAME_COLUMN.", ".self::PASSWORD_COLUMN.",".self::ROLE_COLUMN." )
-        VALUES (?,?,1)",$params);
+        $loginHash = sha1($params[0].self::SALT.$params[1]);
+        $params[2] = $loginHash;
+        $users = Databaze::dotaz("INSERT INTO ".self::TABLE_NAME." (".self::USERNAME_COLUMN.", ".self::PASSWORD_COLUMN.",".self::ROLE_COLUMN.",".self::LOGIN_HASH_COLUMN." )
+        VALUES (?,?,1,?)",$params);
         return true;
     }
 
@@ -63,6 +67,16 @@ class UsersManager {
 
     }
 
+    /**
+     * Returns user info based on login hash
+     * @param $hash
+     * @return mixed|PDOStatement
+     */
+    public function getUserByHash($hash){
+        $user = Databaze::dotaz("SELECT * FROM ".self::TABLE_NAME." WHERE ".self::LOGIN_HASH_COLUMN." = ?",array($hash));
+        $user = $user->fetch(PDO::FETCH_ASSOC);
+        return $user;
 
+    }
 
 }

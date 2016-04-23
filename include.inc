@@ -1,4 +1,5 @@
 <?php
+session_start();
 mb_internal_encoding("UTF-8");
 
 function nactiTridu($trida)
@@ -7,8 +8,11 @@ require("php_classes/$trida.php");
 }
 
 spl_autoload_register("nactiTridu");
-require('php_classes/php_error.php' );
-php_error\reportErrors();
+if(!isset($dontIncludeError)){
+    require('php_classes/php_error.php' );
+    php_error\reportErrors();
+}
+
 
 Databaze::pripoj('localhost', 'root', 'root', 'chat');
 

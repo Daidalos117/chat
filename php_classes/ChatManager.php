@@ -27,4 +27,21 @@ class ChatManager
         return $data;
     }
 
+
+    /**
+     * Addmesage
+     * @param $message
+     * @param $userId
+     * @param $roomId
+     * @return bool
+     * @throws Exception
+     */
+    public function addMessage($message,$userId,$roomId){
+        $dotaz = Databaze::dotaz("INSERT INTO ".self::TABLE_NAME." VALUES (0,?,?,?,NOW()) ",array($message,$userId,$roomId));
+        if($dotaz) return Databaze::getLastID();
+        else throw new Exception("Something went wrong".Databaze::getError() );
+
+    }
+
+
 }
