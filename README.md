@@ -1,12 +1,11 @@
 # chat
 Chat app project for school. 
 Written mainly in
-* HTML - framework Bootstrap
-* CSS - Sass
-* JS - Jquery (could be lot better in Angular, maybe next version?)
+* HTML - [Bootstrap](http://getbootstrap.com/)
+* CSS - [Sass](http://sass-lang.com/)
+* JS - [Jquery](https://jquery.com/) (could be lot better in Angular, maybe next version?)
 * Php 5
-
-[Emojify plugin] (https://github.com/Ranks/emojify.js)
+* [Emojify plugin] (https://github.com/Ranks/emojify.js)
 
 
 TODO 
