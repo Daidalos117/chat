@@ -79,12 +79,13 @@ header {
       font-size: 1.1em;
       color: #394359;
       padding: 5px 0px;
+      letter-spacing: 1px;
       margin: 0px;
       display: inline-block; }
     .messages .message p {
       padding-left: 10px;
       font-size: 0.9em;
-      color: #4d5a78; }
+      color: rgba(57, 67, 89, 0.85); }
     .messages .message .img {
       padding: 0px;
       padding-top: 0px; }
@@ -98,8 +99,25 @@ header {
       background-color: #fcfcfc; }
 
 .new-message {
-  margin: 40px 0px;
+  margin: 50px 0px;
+  margin-bottom: 150px;
   padding: 0px; }
+
+#sendMessage {
+  margin-top: 10px;
+  color: #BA6C65;
+  text-shadow: none;
+  transition: 500ms;
+  background-image: none;
+  background-color: white;
+  border-color: #BA6C65;
+  padding: 10px 20px;
+  border-radius: 40px;
+  border-width: 2px; }
+  #sendMessage:hover {
+    background: rgba(234, 234, 234, 0.3); }
+  #sendMessage:focus {
+    outline: none; }
 
 footer {
   background-color: #303242;

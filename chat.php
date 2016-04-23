@@ -26,7 +26,10 @@ $_SESSION["room"] = $room;
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 
     <link rel="stylesheet" href="css/main.css">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <!-- Emojify https://github.com/Ranks/emojify.js -->
+    <link rel="stylesheet" href="css/emojify.min.css" />
 
     <!--[if lt IE 9]>
     <script src="js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
@@ -79,12 +82,23 @@ $_SESSION["room"] = $room;
                 Rooms
             </div>
             <div class="panel-body">
-
+                <ul>
+                <?php $rooms = $roomManager->getRooms();
+                 foreach($rooms as $room){?>
+                     <li><a href="?room=<?php echo $room["ID"] ?>"><?php echo $room[RoomsManager::COLUMN_NAME] ?></a> </li>
+                 <?php } ?>
+                </ul>
+                <div class="col-md-2">
+                    <a class="add-room"><span class="fa fa-plus"></span></a>
+                </div>
+                <div class="col-md-10">
+                    <input type="text" name="new-room" class="form-control">
+                </div>
             </div>
         </div>
 
     </div>
-    <div class="col-md-9 content">
+    <div class="col-md-9 content" id="content">
 
         <div class="col-md-12 messages" id="messages">
             <div class="message hidden col-md-12" data-id="">
@@ -130,10 +144,14 @@ $_SESSION["room"] = $room;
         <div class="new-message col-md-12">
            <h5>Send new message</h5>
             <form id="newMessage">
-                <textarea class="form-control" name="message"></textarea>
-                <input type="hidden" value="<?php echo $room["ID"] ?>" name="room" id="room-id">
-                <input type="submit" value="Post it!" class="btn btn-default" id="sendMessage">
-
+                <div class="col-md-10">
+                    <textarea class="form-control" name="message" placeholder="Write your message..." required></textarea>
+                    <p class="help-block">We are now supporting <a href="http://www.emoji-cheat-sheet.com/" target="_new">emoji</a> :heart: :sunglasses:  :smile:  :+1: :clap:</p>
+                </div>
+                <div class="col-md-2 text-right">
+                    <input type="hidden" value="<?php echo $room["ID"] ?>" name="room" id="room-id">
+                    <button type="submit" value="" class="btn btn-default " id="sendMessage">Post it <i class='fa fa-paper-plane-o'></i> </button>
+                </div>
             </form>
         </div>
 
@@ -147,6 +165,7 @@ $_SESSION["room"] = $room;
 </footer>
 </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+<script src="js/emojify.min.js"></script>
 
 <script src="js/vendor/bootstrap.min.js"></script>
 
@@ -160,16 +179,24 @@ $_SESSION["room"] = $room;
 
         scrollToBottom();
 
+        runEmoji();
+
+
+
         setInterval(function(){
             getMessages();
         },1000 );
 
         setInterval(function(){
             loggedIn();
-            getLogged();
+            setTimeout(function(){
+                getLogged();
+            },200);
+
         },20000 );
 
 
+        turnOnTooltip();
 
         /** Submits new message */
         $('#newMessage').submit(function(e) {
@@ -189,8 +216,10 @@ $_SESSION["room"] = $room;
                     if(data ){
                         $('#newMessage')[0].reset();
                         var date = new Date();
-                        data.date = date.getDate()+"."+date.getMonth()+"."+date.getYear();
-                        data.time = date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+                        var readable = getReadableDate(date);
+
+                        data.date = readable.date;
+                        data.time = readable.time;
                         addMessage(data);
                     }
 
@@ -201,6 +230,20 @@ $_SESSION["room"] = $room;
         });
 
 
+        /**
+         * Returns readable date and time
+         * */
+        function getReadableDate(dateObj){
+            var data = {};
+            data.date = dateObj.getDate()+"."+dateObj.getMonth()+"."+dateObj.getFullYear();
+            data.time = dateObj.getHours()+":"+dateObj.getMinutes()+":"+dateObj.getSeconds();
+            return data;
+        }
+
+
+        /**
+         * Gets currently logged users
+         * */
         function getLogged(){
             $.ajax({
                 url         : 'get-logged-users.php',
@@ -239,13 +282,15 @@ $_SESSION["room"] = $room;
             template.find("h3").html(message.username);
             template.find("p").html(message.message);
             template.find("span.actual-time").html(message.time);
-            template.data("id",message.ID);
-            template.find("span.date").data("original-title",message.date);
+            template.attr("data-id",message.ID);
+            template.find("span.date").attr("data-title",message.date);
             template.find("img").attr("src","https://api.adorable.io/avatars/50/" + message.username + "@adorable.io.png")
 
             last.hide().after(template).fadeIn(500);
-            scrollToBottom(200);
 
+            scrollToBottom(200);
+            turnOnTooltip();
+            runEmoji();
         }
 
 
@@ -270,7 +315,9 @@ $_SESSION["room"] = $room;
                         var time = 0;
                         $.each(data, function(index, message){
                             date = new Date(message.time);
-
+                            var readable = getReadableDate(date);
+                            message.date = readable.date;
+                            message.time = readable.time;
                             setTimeout(function(){
                                 addMessage(message);
                             },time);
@@ -297,7 +344,14 @@ $_SESSION["room"] = $room;
         }
 
         /** Turn on Bootstrap Tooltip for date */
-        $('[data-toggle="tooltip"]').tooltip()
+        function turnOnTooltip(){
+            $('[data-toggle="tooltip"]').tooltip();
+        }
+
+        function runEmoji(){
+            emojify.run(document.getElementById('content'));
+        }
+
     });
 
 </script>

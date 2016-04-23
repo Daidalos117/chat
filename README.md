@@ -6,9 +6,12 @@ Written mainly in
 * JS - Jquery (could be lot better in Angular, maybe next version?)
 * Php 5
 
+[Emojify plugin] (https://github.com/Ranks/emojify.js)
 
 
-/* TODO */
+TODO 
+----
+
 Logged users
 Rooms
 Adding rooms
