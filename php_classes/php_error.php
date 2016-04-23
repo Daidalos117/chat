@@ -2397,7 +2397,7 @@
                     // load the session, if it's there
 
                     if ( isset($_COOKIE[session_name()]) && session_id() !== '' ) {
-                        session_start();
+                        @session_start();
                     }
 
                     $request  = ErrorHandler::getRequestHeaders();

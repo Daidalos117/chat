@@ -40,7 +40,12 @@ class UsersManager {
         return true;
     }
 
-
+    /**
+     * Logins user
+     * @param $user
+     * @param $pass
+     * @return bool|mixed|PDOStatement
+     */
     public function login($user,$pass){
 
 

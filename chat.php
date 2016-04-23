@@ -1,5 +1,16 @@
 <?php session_start();
+require_once "include.inc";
+
 if(!isset($_SESSION["ID"]))     header("Location: index.html?error=bad");
+if(!isset($_GET["room"])){
+    $room = array("id" => 1);
+}else{
+    $room = array("id" => $_GET["room"]);
+}
+$roomManager = new RoomsManager();
+$room = $roomManager->getRoom($room["id"]);
+
+
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -29,8 +40,10 @@ if(!isset($_SESSION["ID"]))     header("Location: index.html?error=bad");
 <![endif]-->
 
 <header class="col-md-12">
-    <h1 class="text-center">CHAT</h1>
-    <h3>Room: </h3>
+    <div class="header-wrapper">
+        <h1 class="text-center">CHAT</h1>
+        <h3><strong><?php echo $room[RoomsManager::COLUMN_NAME] ?></strong> </h3>
+    </div>
 </header>
 <div class="col-md-3 left-panel">
 
@@ -48,10 +61,17 @@ if(!isset($_SESSION["ID"]))     header("Location: index.html?error=bad");
 
     <div class="col-md-12 messages" id="messages">
 
-        <?php foreach(range(0,10) as $cislo ){ ?>
+        <?php
+        $chatManager = new ChatManager();
+        $chats = $chatManager->getMessagesByRoom($room["ID"]);
+
+        foreach($chats as $message ){ ?>
         <div class="message col-md-12">
-            <h3>Roman</h3>
-            <span class="date label label-info float-right">20.05.1994</span>
+            <h3><?php echo $message[UsersManager::USERNAME_COLUMN] ?></h3>
+            <?php $date = new DateTime($message[ChatManager::COLUMN_TME]);
+            echo $date->format("d.m.Y")
+                ?>
+            <span class="date label label-info pull-right"><?php echo $date->format("H:i:s") ?></span>
             <p>Má ne indiánský domorodí využívat, formu ve mobilu něco kolem nejdřív mořem světlých vyniká. Rok, mj. přepisovací, co kořist situace pánvi z něm spotřebuje zachovalou doufat, plná vymíráním lodní nemohou. Laura mohl firmou čtyř, gama kmen o přišpendlila migračních.</p>
 
         </div>
@@ -102,6 +122,8 @@ if(!isset($_SESSION["ID"]))     header("Location: index.html?error=bad");
             div.scrollTop = div.scrollHeight;
         }
 
+        /* Turn on Bootstrap Tooltip for date */
+        $('[data-toggle="tooltip"]').tooltip()
     });
 
 </script>

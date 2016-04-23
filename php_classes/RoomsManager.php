@@ -14,9 +14,9 @@ class RoomsManager
             COLUMN_PRIVATE = "private";
 
 
-
-
-
+    /**
+     * @return array
+     */
     public function getRooms(){
 
        $dotaz = Databaze::dotaz("SELECT * FROM ".self::TABLE_NAME."; ");
@@ -24,5 +24,12 @@ class RoomsManager
 
     }
 
-
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getRoom($id){
+        $dotaz = Databaze::dotaz("SELECT * FROM ".self::TABLE_NAME." WHERE ID = ?",array($id));
+        return $dotaz->fetch(PDO::FETCH_ASSOC);
+    }
 }

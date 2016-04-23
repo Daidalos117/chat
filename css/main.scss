@@ -7,36 +7,64 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700|Raleway&subset=latin,latin-ext);
 
 
-$color-positive: #08D9D6;
-$color-passion: #FF2E63;
+$color-positive: #95E1D3;
+$color-passion: #F38181;
 $color-dark: #252A34;
 $color-light: #EAEAEA;
-
+$color-lightgreen: #EAFFD0;
+$color-orange: #FCE38A;
 
 
 
 html,body{
   font-size: 14px;
   font-family: 'Roboto', sans-serif;
+
 }
 
 
 header{
-  background-color: $color-positive ;
-  color: $color-light;
-  height: 200px;
+  background:{
+    image: url("../img/startup-photos.jpg");
+    size: cover;
+    position: center;
+  }
+  font-family: 'Raleway', sans-serif;
+  padding: 0px !important;
+  color: white;
+  height: 300px;
   margin-bottom: 50px;
   h1{
-    font-size: 4em;
+    font-size: 5em;
     font-weight: 700;
+    margin-top: 0px;
+    padding-top: 100px;
+    letter-spacing: 1.2;
   }
   h3{
     text-align: center;
-    color: darken($color-positive,10%);
+    color: white;
+    letter-spacing: 1.1;
+    color: $color-passion;
+    font-size: 3em;
   }
+
+  .header-wrapper{
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color-light, .6);
+  }
+
 }
 
-
+.panel-primary{
+  border-color: $color-positive;
+  .panel-heading{
+    background-color: $color-positive;
+    border-color: $color-positive;
+    background-image: none;
+  }
+}
 
 .messages{
   border: 1px solid $color-light;
