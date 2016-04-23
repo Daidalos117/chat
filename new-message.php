@@ -17,7 +17,7 @@ $chatManager = new ChatManager();
 $message = strip_tags($_POST["message"]);
 try{
     $insert = $chatManager->addMessage($message,$user["ID"],$_POST["room"]);
-    $mm = array("message" => $message, "ID" => $insert , "user" => $user[UsersManager::USERNAME_COLUMN]);
+    $mm = array("message" => $message, "ID" => $insert , "username" => $user[UsersManager::USERNAME_COLUMN]);
     echo json_encode( $mm );
 }catch(Exception  $e){
     echo json_encode( array("error" => $e) );

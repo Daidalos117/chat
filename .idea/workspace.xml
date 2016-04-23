@@ -2,18 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="189d5f95-0d49-4eb1-87a5-5346bf2fa9c1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/messages.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/get-logged-users.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/logged-in.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php_classes/LoggedInManager.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chat.php" afterPath="$PROJECT_DIR$/chat.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css.map" afterPath="$PROJECT_DIR$/css/main.css.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.scss" afterPath="$PROJECT_DIR$/css/main.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include.inc" afterPath="$PROJECT_DIR$/include.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messages.php" afterPath="$PROJECT_DIR$/messages.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new-message.php" afterPath="$PROJECT_DIR$/new-message.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php_classes/ChatManager.php" afterPath="$PROJECT_DIR$/php_classes/ChatManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php_classes/RoomsManager.php" afterPath="$PROJECT_DIR$/php_classes/RoomsManager.php" />
     </list>
     <ignored path="chat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,21 +38,53 @@
       <file leaf-file-name="chat.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chat.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.125">
-              <caret line="230" column="0" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
+            <state vertical-scroll-proportion="-44.705883">
+              <caret line="152" column="25" selection-start-line="152" selection-start-column="25" selection-end-line="152" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="messages.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LoggedInManager.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php_classes/LoggedInManager.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.75">
+              <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+              <folding>
+                <marker date="1461429591000" expanded="true" signature="357:369" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
+                <marker date="1461429591000" expanded="true" signature="357:413" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
+                <marker date="1461429591000" expanded="true" signature="357:424" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="logged-in.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/logged-in.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.0">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="get-logged-users.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/get-logged-users.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.049423393">
+              <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="messages.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/messages.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44481054">
-              <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-              <folding>
-                <element signature="e#6#86#0#PHP" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-1.25">
+              <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -61,8 +93,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="0.0">
-                <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <first_editor vertical-scroll-proportion="0.13020833">
+                <caret line="5" column="67" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -73,11 +105,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="main.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/main.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.0">
+              <caret line="81" column="23" selection-start-line="81" selection-start-column="23" selection-end-line="81" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="new-message.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/new-message.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.5">
-              <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+            <state vertical-scroll-proportion="-10.0">
+              <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -86,65 +128,43 @@
       <file leaf-file-name="ChatManager.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php_classes/ChatManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.041666">
-              <caret line="47" column="25" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
+            <state vertical-scroll-proportion="3.125">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
-                <marker date="1461425152000" expanded="true" signature="455:553" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-                <marker date="1461425152000" expanded="true" signature="455:583" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-                <marker date="1461425152000" expanded="true" signature="455:584" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-                <marker date="1461425152000" expanded="true" signature="455:612" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-                <marker date="1461425152000" expanded="true" signature="455:615" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-                <marker date="1461425152000" expanded="true" signature="455:616" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-                <marker date="1461425152000" expanded="true" signature="455:637" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-                <marker date="1461425152000" expanded="true" signature="455:638" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-                <marker date="1461425152000" expanded="true" signature="455:659" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-                <marker date="1461425152000" expanded="true" signature="455:660" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-                <marker date="1461425152000" expanded="true" signature="455:696" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-                <marker date="1461425152000" expanded="true" signature="455:697" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-                <marker date="1461425152000" expanded="true" signature="455:698" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-                <marker date="1461425152000" expanded="true" signature="455:719" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-                <marker date="1461425152000" expanded="true" signature="455:721" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-                <marker date="1461425152000" expanded="true" signature="455:722" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-                <marker date="1461425152000" expanded="true" signature="1060:1101" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
-                <marker date="1461425152000" expanded="true" signature="1060:1115" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
-                <marker date="1461425152000" expanded="true" signature="1485:1498" placeholder="SELECT * FRO... " />
-                <marker date="1461425152000" expanded="true" signature="1485:1499" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-                <marker date="1461425152000" expanded="true" signature="1485:1536" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-                <marker date="1461425152000" expanded="true" signature="1485:1537" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-                <marker date="1461425152000" expanded="true" signature="1485:1562" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+                <marker date="1461425436000" expanded="true" signature="455:565" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+                <marker date="1461425436000" expanded="true" signature="455:607" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+                <marker date="1461425436000" expanded="true" signature="455:608" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+                <marker date="1461425436000" expanded="true" signature="455:636" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+                <marker date="1461425436000" expanded="true" signature="455:651" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+                <marker date="1461425436000" expanded="true" signature="455:652" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+                <marker date="1461425436000" expanded="true" signature="455:673" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+                <marker date="1461425436000" expanded="true" signature="455:674" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+                <marker date="1461425436000" expanded="true" signature="455:695" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+                <marker date="1461425436000" expanded="true" signature="455:696" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+                <marker date="1461425436000" expanded="true" signature="455:744" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+                <marker date="1461425436000" expanded="true" signature="455:745" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+                <marker date="1461425436000" expanded="true" signature="455:746" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+                <marker date="1461425436000" expanded="true" signature="455:767" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+                <marker date="1461425436000" expanded="true" signature="455:769" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+                <marker date="1461425436000" expanded="true" signature="455:770" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+                <marker date="1461425436000" expanded="true" signature="1121:1162" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
+                <marker date="1461425436000" expanded="true" signature="1121:1176" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
+                <marker date="1461425436000" expanded="true" signature="1546:1656" placeholder="SELECT * FRO... " />
+                <marker date="1461425436000" expanded="true" signature="1546:1657" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+                <marker date="1461425436000" expanded="true" signature="1546:1850" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+                <marker date="1461425436000" expanded="true" signature="1546:1851" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+                <marker date="1461425436000" expanded="true" signature="1546:1876" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/main.scss">
+      <file leaf-file-name="include.inc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include.inc">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.416667">
-              <caret line="96" column="25" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="25" />
+            <state vertical-scroll-proportion="-14.375">
+              <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chat_main.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chat_main.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.875">
-              <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Databaze.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php_classes/Databaze.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.791666">
-              <caret line="53" column="27" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
-              <folding>
-                <element signature="e#6#88#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -173,16 +193,19 @@
         <option value="$PROJECT_DIR$/php_classes/php_error.php" />
         <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/php_classes/UsersManager.php" />
-        <option value="$PROJECT_DIR$/include.inc" />
         <option value="$PROJECT_DIR$/php_classes/Databaze.php" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/new-message.php" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/php_classes/RoomsManager.php" />
-        <option value="$PROJECT_DIR$/css/main.scss" />
-        <option value="$PROJECT_DIR$/messages.php" />
-        <option value="$PROJECT_DIR$/chat.php" />
         <option value="$PROJECT_DIR$/php_classes/ChatManager.php" />
+        <option value="$PROJECT_DIR$/new-message.php" />
+        <option value="$PROJECT_DIR$/messages.php" />
+        <option value="$PROJECT_DIR$/include.inc" />
+        <option value="$PROJECT_DIR$/logged-in.php" />
+        <option value="$PROJECT_DIR$/php_classes/LoggedInManager.php" />
+        <option value="$PROJECT_DIR$/chat.php" />
+        <option value="$PROJECT_DIR$/css/main.scss" />
+        <option value="$PROJECT_DIR$/get-logged-users.php" />
       </list>
     </option>
   </component>
@@ -196,8 +219,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 5.5" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="309" />
-    <option name="y" value="245" />
+    <option name="x" value="218" />
+    <option name="y" value="246" />
     <option name="width" value="1481" />
     <option name="height" value="728" />
   </component>
@@ -286,6 +309,9 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/php_classes" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/php_classes" />
       <recent name="$PROJECT_DIR$" />
@@ -335,7 +361,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="309" y="245" width="1481" height="728" extended-state="0" />
+    <frame x="218" y="246" width="1481" height="728" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -434,29 +460,29 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="40" column="48" selection-start-line="40" selection-start-column="48" selection-end-line="40" selection-end-column="48" />
           <folding>
-            <marker date="1461425152000" expanded="true" signature="455:553" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:583" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:584" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:612" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:615" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:616" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:637" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:638" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:659" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:660" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:696" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:697" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:698" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:719" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:721" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:722" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="1060:1101" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
-            <marker date="1461425152000" expanded="true" signature="1060:1115" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
-            <marker date="1461425152000" expanded="true" signature="1485:1498" placeholder="SELECT * FRO... " />
-            <marker date="1461425152000" expanded="true" signature="1485:1499" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="1485:1536" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="1485:1537" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="1485:1562" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:565" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:607" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:608" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:636" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:651" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:652" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:673" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:674" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:695" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:696" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:744" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:745" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:746" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:767" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:769" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:770" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="1121:1162" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
+            <marker date="1461425436000" expanded="true" signature="1121:1176" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
+            <marker date="1461425436000" expanded="true" signature="1546:1656" placeholder="SELECT * FRO... " />
+            <marker date="1461425436000" expanded="true" signature="1546:1657" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="1546:1850" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="1546:1851" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="1546:1876" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
           </folding>
         </state>
       </provider>
@@ -557,29 +583,29 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
           <folding>
-            <marker date="1461425152000" expanded="true" signature="455:553" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:583" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:584" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:612" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:615" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:616" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:637" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:638" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:659" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:660" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:696" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:697" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:698" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:719" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:721" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:722" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="1060:1101" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
-            <marker date="1461425152000" expanded="true" signature="1060:1115" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
-            <marker date="1461425152000" expanded="true" signature="1485:1498" placeholder="SELECT * FRO... " />
-            <marker date="1461425152000" expanded="true" signature="1485:1499" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="1485:1536" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="1485:1537" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="1485:1562" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:565" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:607" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:608" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:636" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:651" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:652" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:673" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:674" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:695" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:696" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:744" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:745" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:746" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:767" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:769" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:770" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="1121:1162" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
+            <marker date="1461425436000" expanded="true" signature="1121:1176" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
+            <marker date="1461425436000" expanded="true" signature="1546:1656" placeholder="SELECT * FRO... " />
+            <marker date="1461425436000" expanded="true" signature="1546:1657" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="1546:1850" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="1546:1851" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="1546:1876" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
           </folding>
         </state>
       </provider>
@@ -675,35 +701,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include.inc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24711697">
-          <caret line="10" column="27" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php_classes/UsersManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67874795">
-          <caret line="74" column="20" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="20" />
-          <folding>
-            <marker date="1461411946000" expanded="true" signature="479:492" placeholder="SELECT * FRO... " />
-            <marker date="1461411946000" expanded="true" signature="479:493" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461411946000" expanded="true" signature="479:549" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461411946000" expanded="true" signature="479:550" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461411946000" expanded="true" signature="479:551" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461411946000" expanded="true" signature="988:1075" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
-            <marker date="1461411946000" expanded="true" signature="988:1097" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
-            <marker date="1461411946000" expanded="true" signature="988:1125" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
-            <marker date="1461411946000" expanded="true" signature="988:1151" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
-            <marker date="1461411946000" expanded="true" signature="1380:1450" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461411946000" expanded="true" signature="1380:1451" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461411946000" expanded="true" signature="1916:1988" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php_classes/RoomsManager.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7907743">
@@ -713,34 +710,6 @@
             <marker date="1461422150000" expanded="true" signature="361:375" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
             <marker date="1461422150000" expanded="true" signature="583:630" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.0">
-            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.416667">
-          <caret line="96" column="25" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -762,61 +731,144 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chat.php">
+    <entry file="file://$PROJECT_DIR$/php_classes/ChatManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.125">
-          <caret line="230" column="0" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="3.125">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <marker date="1461425436000" expanded="true" signature="455:565" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:607" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:608" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:636" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:651" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:652" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:673" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:674" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:695" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:696" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:744" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:745" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:746" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:767" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:769" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="455:770" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="1121:1162" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
+            <marker date="1461425436000" expanded="true" signature="1121:1176" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
+            <marker date="1461425436000" expanded="true" signature="1546:1656" placeholder="SELECT * FRO... " />
+            <marker date="1461425436000" expanded="true" signature="1546:1657" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="1546:1850" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="1546:1851" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461425436000" expanded="true" signature="1546:1876" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/new-message.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.5">
-          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+        <state vertical-scroll-proportion="-10.0">
+          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php_classes/ChatManager.php">
+    <entry file="file://$PROJECT_DIR$/php_classes/UsersManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.041666">
-          <caret line="47" column="25" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.22240527">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
           <folding>
-            <marker date="1461425152000" expanded="true" signature="455:553" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:583" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:584" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:612" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:615" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:616" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:637" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:638" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:659" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:660" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:696" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:697" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:698" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:719" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:721" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="455:722" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="1060:1101" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
-            <marker date="1461425152000" expanded="true" signature="1060:1115" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
-            <marker date="1461425152000" expanded="true" signature="1485:1498" placeholder="SELECT * FRO... " />
-            <marker date="1461425152000" expanded="true" signature="1485:1499" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="1485:1536" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="1485:1537" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
-            <marker date="1461425152000" expanded="true" signature="1485:1562" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461411946000" expanded="true" signature="479:492" placeholder="SELECT * FRO... " />
+            <marker date="1461411946000" expanded="true" signature="479:493" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461411946000" expanded="true" signature="479:549" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461411946000" expanded="true" signature="479:550" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461411946000" expanded="true" signature="479:551" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461411946000" expanded="true" signature="988:1075" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
+            <marker date="1461411946000" expanded="true" signature="988:1097" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
+            <marker date="1461411946000" expanded="true" signature="988:1125" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
+            <marker date="1461411946000" expanded="true" signature="988:1151" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
+            <marker date="1461411946000" expanded="true" signature="1380:1450" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461411946000" expanded="true" signature="1380:1451" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+            <marker date="1461411946000" expanded="true" signature="1916:1988" placeholder="SELECT * FRO... ${self::TABLE_NAME}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.375">
+          <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php_classes/LoggedInManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.75">
+          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+          <folding>
+            <marker date="1461429591000" expanded="true" signature="357:369" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
+            <marker date="1461429591000" expanded="true" signature="357:413" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
+            <marker date="1461429591000" expanded="true" signature="357:424" placeholder="INSERT INTO ${self::TABLE_NAME}... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/messages.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44481054">
-          <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-          <folding>
-            <element signature="e#6#86#0#PHP" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-1.25">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor vertical-scroll-proportion="0.13020833">
+            <caret line="5" column="67" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-44.705883">
+          <caret line="152" column="25" selection-start-line="152" selection-start-column="25" selection-end-line="152" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.0">
+          <caret line="81" column="23" selection-start-line="81" selection-start-column="23" selection-end-line="81" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logged-in.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.0">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/get-logged-users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.049423393">
+          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>

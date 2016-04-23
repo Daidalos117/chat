@@ -17,4 +17,12 @@ if(!isset($dontIncludeError)){
 Databaze::pripoj('localhost', 'root', 'root', 'chat');
 
 date_default_timezone_set("Europe/Prague");
+
+if(!isset($turnOffSecurity)){
+    $userManager = new UsersManager();
+    $user = $userManager->getUserByHash($_SESSION["ID"]);
+    if(!isset($_SESSION["ID"]) and !$user)     header("Location: index.html?error=bad");
+}
+
+
 ?>

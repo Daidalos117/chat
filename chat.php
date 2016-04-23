@@ -1,7 +1,6 @@
 <?php
 require_once "include.inc";
-$userManager = new UsersManager();
-if(!isset($_SESSION["ID"]) and $userManager->getUserByHash($_SESSION["ID"]))     header("Location: index.html?error=bad");
+
 if(!isset($_GET["room"])){
     $room = array("id" => 1);
 }else{
@@ -44,87 +43,95 @@ $_SESSION["room"] = $room;
         <h3><strong><?php echo $room[RoomsManager::COLUMN_NAME] ?></strong> </h3>
     </div>
 </header>
-<div class="col-md-3 left-panel">
 
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <i class="fa fa-users" aria-hidden="true"></i>
-            Logged users
+<div class="container">
+
+    <div class="col-md-3 left-panel">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <i class="fa fa-users" aria-hidden="true"></i>
+                Logged users
+            </div>
+            <div class="panel-body">
+                <?php echo $_SESSION["user"] ?>
+            </div>
         </div>
-        <div class="panel-body">
-            <?php echo $_SESSION["user"] ?>
-        </div>
+
     </div>
+    <div class="col-md-6 content">
 
-</div>
-<div class="col-md-6 content">
-
-    <div class="col-md-12 messages" id="messages">
-        <div class="message hidden col-md-12" data-id="">
-            <div class="col-md-1">
-                <img src="https://api.adorable.io/avatars/50/@adorable.io.png" alt="avatar" class="img-rounded">
-            </div>
-            <div class="col-md-11">
-            <h3></h3>
-                <span class="date label label-info pull-right" data-toggle="tooltip" data-placement="top" title=""></span>
-                <p></p>
-            </div>
-        </div>
-
-
-        <?php
-        $chatManager = new ChatManager();
-        $chats = $chatManager->getMessagesByRoom($room["ID"]);
-
-        foreach($chats as $message ){ ?>
-        <div class="message col-md-12" data-id="<?php echo $message["ID"] ?>">
-            <div class="col-md-1 img">
-                <img src="https://api.adorable.io/avatars/44/<?php echo $message[UsersManager::USERNAME_COLUMN] ?>@adorable.io.png" alt="avatar" class="img-circle">
-            </div>
-            <div class="col-md-11 mes">
-                <h3><?php echo $message[UsersManager::USERNAME_COLUMN] ?></h3>
-                <?php $date = new DateTime($message[ChatManager::COLUMN_TME]) ?>
-                <span class="date pull-right" data-toggle="tooltip" data-placement="top" title="<?php echo $date->format("d.m.Y") ?>">
-                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                    <span class="actual-time">
-                        <?php echo $date->format("H:i:s") ?>
+        <div class="col-md-12 messages" id="messages">
+            <div class="message hidden col-md-12" data-id="">
+                <div class="col-md-1 img">
+                    <img src="" alt="avatar" class="img-circle">
+                </div>
+                <div class="col-md-11">
+                <h3></h3>
+                    <span class="date pull-right" data-toggle="tooltip" data-placement="top" title="">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        <span class="actual-time"></span>
                     </span>
-                </span>
-                <p><?php echo $message[ChatManager::COLUMN_MESSAGE] ?></p>
+                    <p></p>
+                </div>
+            </div>
+
+
+            <?php
+            $chatManager = new ChatManager();
+            $chats = $chatManager->getMessagesByRoom($room["ID"]);
+
+            foreach($chats as $message ){ ?>
+            <div class="message col-md-12" data-id="<?php echo $message["ID"] ?>">
+                <div class="col-md-1 img">
+                    <img src="https://api.adorable.io/avatars/44/<?php echo $message[UsersManager::USERNAME_COLUMN] ?>@adorable.io.png" alt="avatar" class="img-circle">
+                </div>
+                <div class="col-md-11 mes">
+                    <h3><?php echo $message[UsersManager::USERNAME_COLUMN] ?></h3>
+                    <?php $date = new DateTime($message[ChatManager::COLUMN_TME]) ?>
+                    <span class="date pull-right" data-toggle="tooltip" data-placement="top" title="<?php echo $date->format("d.m.Y") ?>">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        <span class="actual-time">
+                            <?php echo $date->format("H:i:s") ?>
+                        </span>
+                    </span>
+                    <p><?php echo $message[ChatManager::COLUMN_MESSAGE] ?></p>
+                </div>
+            </div>
+        <?php } ?>
+
+        </div>
+
+        <div class="new-message col-md-12">
+           <h5>Send new message</h5>
+            <form id="newMessage">
+                <textarea class="form-control" name="message"></textarea>
+                <input type="hidden" value="<?php echo $room["ID"] ?>" name="room" id="room-id">
+                <input type="submit" value="Post it!" class="btn btn-default" id="sendMessage">
+
+            </form>
+        </div>
+
+    </div>
+    <div class="col-md-3 right-panel">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <i class="fa fa-sitemap" aria-hidden="true"></i>
+                Rooms
+            </div>
+            <div class="panel-body">
+
             </div>
         </div>
-    <?php } ?>
+
 
     </div>
-
-    <div class="new-message col-md-12">
-       <h5>Send new message</h5>
-        <form id="newMessage">
-            <textarea class="form-control" name="message"></textarea>
-            <input type="hidden" value="<?php echo $room["ID"] ?>" name="room" id="room-id">
-            <input type="submit" value="Post it!" class="btn btn-default" id="sendMessage">
-
-        </form>
-    </div>
-
-</div>
-<div class="col-md-3 right-panel">
-
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <i class="fa fa-sitemap" aria-hidden="true"></i>
-            Rooms
-        </div>
-        <div class="panel-body">
-
-        </div>
-    </div>
-
 
 </div>
 
 <footer class="col-md-12">
-    <p>&copy; Company 2015</p>
+    <p class="container"> Made with <span class="fa fa-heart-o"></span> by Roman Rajchert</p>
 </footer>
 </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
@@ -143,13 +150,13 @@ $_SESSION["room"] = $room;
 
         setInterval(function(){
             getMessages();
-        },10000 );
+           // loggedIn();
+        },500 );
 
 
 
 
-
-
+        /** Submits new message */
         $('#newMessage').submit(function(e) {
             e.preventDefault();
 
@@ -173,47 +180,47 @@ $_SESSION["room"] = $room;
                     }
 
 
-                    /*
-                    $alert = $(".alert");
-                    $alert.removeClass("alert-danger");
-                    $alert.removeClass("alert-success");
-                    if(data.error){
-                        $alert.addClass("alert-danger");
-                        $alert.html(data.error);
-                    }
-                    if(data.succes){
-                        $alert.addClass("alert-success");
-                        $alert.html(data.succes);
-                        $('.register-form')[0].reset();
-                        $(".sign-up").slideUp(500);
-                    }
-
-                    $(".alert-wrapper").slideDown(500);
-                    setTimeout(function(){
-                        $(".alert-wrapper").slideUp(500);
-                    }, 3000);
-                    */
 
                 });
 
         });
 
 
+
+
+        function loggedIn(){
+            $.ajax({
+                url         : 'logged-in.php',
+            })
+        }
+
+
+        /**
+         * Adds message to message wrapper
+         * */
         function addMessage(message){
             var last = findLastMessage();
             var template = $(".message.hidden").clone();
             template.removeClass("hidden");
-            template.children("h3").html(message.user);
-            template.children("p").html(message.message);
-            template.children("span").html(message.time);
+            template.find("h3").html(message.username);
+            template.find("p").html(message.message);
+            template.find("span.actual-time").html(message.time);
             template.data("id",message.ID);
-            template.children("span").data("original-title",message.date);
+            template.find("span.date").data("original-title",message.date);
+            template.find("img").attr("src","https://api.adorable.io/avatars/50/" + message.username + "@adorable.io.png")
+
+
 
             last.hide().after(template).fadeIn(500);
             scrollToBottom(200);
 
         }
 
+
+
+        /**
+         * Gets new messages based on last id
+         * */
         function getMessages(){
 
             var lastId = findLastMessage().data("id");
@@ -228,18 +235,28 @@ $_SESSION["room"] = $room;
 
                 .done(function(data) {
                     if(data){
+                        var time = 0;
+                        $.each(data, function(index, message){
+                            date = new Date(message.time);
 
+                            setTimeout(function(){
+                                addMessage(message);
+                            },time);
+                            time += 300;
+                            console.log(date);
+                        })
                     }
                 });
         }
 
 
 
-
+        /** Finds last Message */
         function findLastMessage(){
             return $(".message").last();
         }
 
+        /** Scrooll to bottom */
         function scrollToBottom(time = 0){
             setTimeout(function(){
                 var div = document.getElementById("messages");
@@ -247,7 +264,7 @@ $_SESSION["room"] = $room;
             },time);
         }
 
-        /* Turn on Bootstrap Tooltip for date */
+        /** Turn on Bootstrap Tooltip for date */
         $('[data-toggle="tooltip"]').tooltip()
     });
 

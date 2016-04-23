@@ -26,7 +26,7 @@ header {
     text-align: center;
     color: white;
     letter-spacing: 1.1;
-    color: #F38181;
+    color: #BA6C65;
     font-size: 3em; }
   header .header-wrapper {
     width: 100%;
@@ -34,17 +34,18 @@ header {
     background-color: rgba(234, 234, 234, 0.6); }
 
 .panel-primary {
-  border-color: #95E1D3; }
+  border-color: #394359; }
   .panel-primary .panel-heading {
-    background-color: #95E1D3;
-    border-color: #95E1D3;
+    background-color: #394359;
+    border-color: #394359;
     background-image: none; }
 
 .messages {
   height: 600px;
   overflow: scroll;
   margin-bottom: 10px;
-  font-family: 'Raleway', sans-serif; }
+  font-family: 'Raleway', sans-serif;
+  border-right: 3px solid #303242; }
   .messages .message {
     background-color: white;
     margin-bottom: 10px;
@@ -55,7 +56,7 @@ header {
     padding-bottom: 12px; }
     .messages .message h3 {
       font-size: 1.1em;
-      color: #F38181;
+      color: #BA6C65;
       padding: 5px 0px;
       margin: 0px;
       display: inline-block; }
@@ -66,7 +67,7 @@ header {
       padding: 0px;
       padding-top: 0px; }
     .messages .message .mes {
-      padding-left: 5px; }
+      padding-left: 15px; }
     .messages .message .date {
       font-family: 'Roboto', sans-serif;
       font-size: 0.8em;
@@ -79,7 +80,7 @@ header {
   padding: 0px; }
 
 footer {
-  background-color: #252A34;
+  background-color: #303242;
   padding: 20px;
   color: #EAEAEA; }
 

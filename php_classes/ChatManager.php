@@ -22,7 +22,12 @@ class ChatManager
      * @return array
      */
     public function getMessagesByRoom($roomId){
-        $query = Databaze::dotaz("SELECT ".self::TABLE_NAME.".*,".UsersManager::TABLE_NAME.".".UsersManager::USERNAME_COLUMN." FROM ".self::TABLE_NAME." LEFT JOIN ".UsersManager::TABLE_NAME." ON ".self::TABLE_NAME.".".self::COLUMN_USER."=".UsersManager::TABLE_NAME.".ID WHERE ".self::COLUMN_ROOM."= ?",array($roomId));
+        $query = Databaze::dotaz("SELECT ".self::TABLE_NAME.".*,".UsersManager::TABLE_NAME.".".UsersManager::USERNAME_COLUMN."
+            FROM ".self::TABLE_NAME."
+            LEFT JOIN ".UsersManager::TABLE_NAME."
+            ON ".self::TABLE_NAME.".".self::COLUMN_USER."=".UsersManager::TABLE_NAME.".ID
+            WHERE ".self::COLUMN_ROOM."= ?",
+            array($roomId));
         $data = $query->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
@@ -51,7 +56,12 @@ class ChatManager
      * @return array
      */
     public function getLastMessages($lastId,$roomId){
-        $query = Databaze::dotaz("SELECT * FROM ".self::TABLE_NAME." WHERE ID > ? AND ".self::COLUMN_ROOM." = ?",array($lastId,$roomId));
+        $query = Databaze::dotaz("SELECT ".self::TABLE_NAME.".*,".UsersManager::TABLE_NAME.".".UsersManager::USERNAME_COLUMN."
+             FROM ".self::TABLE_NAME."
+             LEFT JOIN ".UsersManager::TABLE_NAME."
+             ON ".self::TABLE_NAME.".".self::COLUMN_USER."=".UsersManager::TABLE_NAME.".ID
+             WHERE ID > ? AND ".self::COLUMN_ROOM." = ? ",
+            array($lastId,$roomId));
         return $query->fetchAll(PDO::FETCH_ASSOC);
 
     }

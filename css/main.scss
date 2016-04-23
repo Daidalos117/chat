@@ -7,12 +7,12 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700|Raleway&subset=latin,latin-ext);
 
 
-$color-positive: #95E1D3;
-$color-passion: #F38181;
-$color-dark: #252A34;
+$color-positive: #394359;
+$color-passion: #BA6C65;
+$color-dark: #303242;
 $color-light: #EAEAEA;
-$color-lightgreen: #EAFFD0;
-$color-orange: #FCE38A;
+
+$color-orange: #F2BE8D;
 
 
 
@@ -74,6 +74,7 @@ header{
   margin-bottom: 10px;
 
   font-family: 'Raleway', sans-serif;
+  border-right: 3px solid $color-dark;
   .message{
     background-color: white;
     margin-bottom: 10px;
@@ -102,7 +103,7 @@ header{
       padding-top: 0px;
     }
     .mes{
-      padding-left: 5px;
+      padding-left: 15px;
     }
 
     .date{

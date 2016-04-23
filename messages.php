@@ -1,5 +1,6 @@
 <?php
 /**
+ * Ajax page gets most actual messages
  * User: romanrajchert
  * Date: 23.04.16
  * Time: 16:25
@@ -15,6 +16,8 @@ $room = $_SESSION["room"];
 
 $chatManager = new ChatManager();
 
-$newMessages = $chatManager->getLastMessages($lastMessage,$room["ID"]);
+//$newMessages = $chatManager->getLastMessages($lastMessage,$room["ID"]);
+
+
 if(empty($newMessages)) echo json_encode(false);
-else json_encode($newMessages);
+else echo json_encode($newMessages);
