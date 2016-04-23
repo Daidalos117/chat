@@ -9,3 +9,9 @@
 
 $dontIncludeError = true;
 require_once "include.inc";
+
+$logMan = new LoggedInManager();
+
+$logged = $logMan->getLoggedUsers();
+
+echo json_encode($logged);

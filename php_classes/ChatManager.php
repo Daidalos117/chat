@@ -26,7 +26,9 @@ class ChatManager
             FROM ".self::TABLE_NAME."
             LEFT JOIN ".UsersManager::TABLE_NAME."
             ON ".self::TABLE_NAME.".".self::COLUMN_USER."=".UsersManager::TABLE_NAME.".ID
-            WHERE ".self::COLUMN_ROOM."= ?",
+            WHERE ".self::COLUMN_ROOM."= ?
+            ORDER by ".self::TABLE_NAME.".ID ASC
+            ",
             array($roomId));
         $data = $query->fetchAll(PDO::FETCH_ASSOC);
         return $data;
@@ -60,7 +62,7 @@ class ChatManager
              FROM ".self::TABLE_NAME."
              LEFT JOIN ".UsersManager::TABLE_NAME."
              ON ".self::TABLE_NAME.".".self::COLUMN_USER."=".UsersManager::TABLE_NAME.".ID
-             WHERE ID > ? AND ".self::COLUMN_ROOM." = ? ",
+             WHERE ".self::TABLE_NAME.".ID > ? AND ".self::COLUMN_ROOM." = ? ",
             array($lastId,$roomId));
         return $query->fetchAll(PDO::FETCH_ASSOC);
 

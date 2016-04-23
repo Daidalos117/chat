@@ -54,12 +54,37 @@ $_SESSION["room"] = $room;
                 Logged users
             </div>
             <div class="panel-body">
-                <?php echo $_SESSION["user"] ?>
+                <ul class="logged-list">
+                    <?php
+                    $logMa = new LoggedInManager();
+                    $logged = $logMa->getLoggedUsers();
+                    $columnUsername = array_column($logged,UsersManager::USERNAME_COLUMN);
+                    if(!in_array($user[UsersManager::USERNAME_COLUMN],$columnUsername)){
+                        array_unshift($logged,$user);
+                    }
+
+                    foreach($logged as $log){
+                        echo "<li><span>".$log[UsersManager::USERNAME_COLUMN]."</span></li>";
+                    }
+                    ?>
+
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <i class="fa fa-sitemap" aria-hidden="true"></i>
+                Rooms
+            </div>
+            <div class="panel-body">
+
             </div>
         </div>
 
     </div>
-    <div class="col-md-6 content">
+    <div class="col-md-9 content">
 
         <div class="col-md-12 messages" id="messages">
             <div class="message hidden col-md-12" data-id="">
@@ -113,20 +138,7 @@ $_SESSION["room"] = $room;
         </div>
 
     </div>
-    <div class="col-md-3 right-panel">
 
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <i class="fa fa-sitemap" aria-hidden="true"></i>
-                Rooms
-            </div>
-            <div class="panel-body">
-
-            </div>
-        </div>
-
-
-    </div>
 
 </div>
 
@@ -150,9 +162,12 @@ $_SESSION["room"] = $room;
 
         setInterval(function(){
             getMessages();
-           // loggedIn();
-        },500 );
+        },1000 );
 
+        setInterval(function(){
+            loggedIn();
+            getLogged();
+        },20000 );
 
 
 
@@ -186,11 +201,30 @@ $_SESSION["room"] = $room;
         });
 
 
+        function getLogged(){
+            $.ajax({
+                url         : 'get-logged-users.php',
+                dataType    : 'json'
+            }).done(function(data) {
+                if(data){
+                    var $list = $(".logged-list");
+                    $list.html("");
+                    $.each(data,function(key,value){
+                        $list.append("<li><span>"+value.username+"</span></li>");
+                    })
+                }
+
+            });
+        }
 
 
+
+        /**
+         * Loggin of user
+         * */
         function loggedIn(){
             $.ajax({
-                url         : 'logged-in.php',
+                url         : 'logged-in.php'
             })
         }
 
@@ -208,8 +242,6 @@ $_SESSION["room"] = $room;
             template.data("id",message.ID);
             template.find("span.date").data("original-title",message.date);
             template.find("img").attr("src","https://api.adorable.io/avatars/50/" + message.username + "@adorable.io.png")
-
-
 
             last.hide().after(template).fadeIn(500);
             scrollToBottom(200);

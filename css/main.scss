@@ -46,7 +46,7 @@ header{
     text-align: center;
     color: white;
     letter-spacing: 1.1;
-    color: $color-passion;
+    color: $color-positive;
     font-size: 3em;
   }
 
@@ -59,11 +59,40 @@ header{
 }
 
 .panel-primary{
-  border-color: $color-positive;
+  border-color: $color-passion;
   .panel-heading{
-    background-color: $color-positive;
-    border-color: $color-positive;
+    background-color: $color-passion;
+    border-color: $color-passion;
     background-image: none;
+  }
+}
+.panel-danger{
+  border-color: $color-orange;
+
+  .panel-heading{
+    background-color: $color-orange;
+    border-color: $color-orange;
+    background-image: none;
+  }
+}
+
+.logged-list{
+  list-style: none;
+  li{
+    padding-left: 0em;
+    padding: 0px;
+    line-height: 2em;
+
+    span{
+    }
+    &:before{
+        content: "• ";
+        font-size: 2em;
+        color: #0DA574;
+        position: relative;
+        top:5px;
+
+    }
   }
 }
 
@@ -74,7 +103,7 @@ header{
   margin-bottom: 10px;
 
   font-family: 'Raleway', sans-serif;
-  border-right: 3px solid $color-dark;
+  border-left: 3px solid $color-dark;
   .message{
     background-color: white;
     margin-bottom: 10px;
@@ -88,7 +117,7 @@ header{
 
     h3{
       font-size: 1.1em;
-      color: $color-passion;
+      color: $color-positive;
       padding: 5px 0px;
 
       margin: 0px;
@@ -97,6 +126,7 @@ header{
     p{
       padding-left: 10px;
       font-size: 0.9em;
+      color: lighten($color-positive,10%);
     }
     .img{
       padding: 0px;

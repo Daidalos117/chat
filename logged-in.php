@@ -13,4 +13,4 @@ $logMan = new LoggedInManager();
 
 $return = $logMan->loggedIn($user["ID"]);
 
-var_dump($return);
+$logMan->flush();

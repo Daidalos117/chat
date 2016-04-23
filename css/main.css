@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ==========================================================================
    Custom styles
    ========================================================================== */
@@ -26,7 +27,7 @@ header {
     text-align: center;
     color: white;
     letter-spacing: 1.1;
-    color: #BA6C65;
+    color: #394359;
     font-size: 3em; }
   header .header-wrapper {
     width: 100%;
@@ -34,18 +35,38 @@ header {
     background-color: rgba(234, 234, 234, 0.6); }
 
 .panel-primary {
-  border-color: #394359; }
+  border-color: #BA6C65; }
   .panel-primary .panel-heading {
-    background-color: #394359;
-    border-color: #394359;
+    background-color: #BA6C65;
+    border-color: #BA6C65;
     background-image: none; }
+
+.panel-danger {
+  border-color: #F2BE8D; }
+  .panel-danger .panel-heading {
+    background-color: #F2BE8D;
+    border-color: #F2BE8D;
+    background-image: none; }
+
+.logged-list {
+  list-style: none; }
+  .logged-list li {
+    padding-left: 0em;
+    padding: 0px;
+    line-height: 2em; }
+    .logged-list li:before {
+      content: "• ";
+      font-size: 2em;
+      color: #0DA574;
+      position: relative;
+      top: 5px; }
 
 .messages {
   height: 600px;
   overflow: scroll;
   margin-bottom: 10px;
   font-family: 'Raleway', sans-serif;
-  border-right: 3px solid #303242; }
+  border-left: 3px solid #303242; }
   .messages .message {
     background-color: white;
     margin-bottom: 10px;
@@ -56,13 +77,14 @@ header {
     padding-bottom: 12px; }
     .messages .message h3 {
       font-size: 1.1em;
-      color: #BA6C65;
+      color: #394359;
       padding: 5px 0px;
       margin: 0px;
       display: inline-block; }
     .messages .message p {
       padding-left: 10px;
-      font-size: 0.9em; }
+      font-size: 0.9em;
+      color: #4d5a78; }
     .messages .message .img {
       padding: 0px;
       padding-top: 0px; }

@@ -16,7 +16,7 @@ $room = $_SESSION["room"];
 
 $chatManager = new ChatManager();
 
-//$newMessages = $chatManager->getLastMessages($lastMessage,$room["ID"]);
+$newMessages = $chatManager->getLastMessages($lastMessage,$room["ID"]);
 
 
 if(empty($newMessages)) echo json_encode(false);
