@@ -1,5 +1,5 @@
 # chat
-Chat app project for school
+Chat app project for school. 
 Written mainly in
 * HTML - framework Bootstrap
 * CSS - Sass
