@@ -4,7 +4,7 @@
    Custom styles
    ========================================================================== */
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,700|Raleway&subset=latin,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,400,700|Raleway&subset=latin,latin-ext);
 
 
 $color-positive: #394359;
@@ -100,7 +100,7 @@ header{
 
 .messages{
 
-  height: 600px;
+  max-height: 600px;
   overflow: scroll;
   margin-bottom: 10px;
 
@@ -108,8 +108,7 @@ header{
   border-left: 3px solid $color-dark;
   .message{
     background-color: white;
-    margin-bottom: 10px;
-    border: 0.5px solid $color-light;
+    margin-bottom: 7px;
     border-radius: 4px;
     transition: 400ms;
     padding: {
@@ -119,6 +118,7 @@ header{
 
     h3{
       font-size: 1.1em;
+      font-weight: 700;
       color: $color-positive;
       padding: 5px 0px;
       letter-spacing: 1px;
@@ -126,9 +126,19 @@ header{
       display: inline-block;
     }
     p{
-      padding-left: 10px;
+      padding:{
+        left: 12px;
+        right: 10px;
+        top: 10px;
+        bottom: 10px;
+      }
+      border-radius: 4px;
+      margin-top: 5px;
       font-size: 0.9em;
-      color: rgba($color-positive,.85);
+      letter-spacing: 0.8px;
+      color: rgba($color-dark,.85);
+      //border: 0.5px solid $color-light;
+      background-color: rgba($color-light,.3);
     }
     .img{
       padding: 0px;
@@ -141,6 +151,8 @@ header{
     .date{
       font-family: 'Roboto', sans-serif;
       font-size: 0.8em;
+      font-weight: 100;
+      letter-spacing: 0.7px;
       color: darken($color-light,5%);
     }
 
@@ -151,9 +163,21 @@ header{
 }
 
 .new-message{
-  margin: 50px 0px;
+  margin: 10px 0px;
   margin-bottom: 150px;
   padding: 0px;
+  h4{
+    color: rgba($color-dark, .7);
+    margin-bottom: 15px;
+  }
+  .help-block{
+    color: rgba($color-dark, .6);
+  }
+  textarea{
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    resize: none;
+  }
 }
 #sendMessage{
   margin-top: 10px;

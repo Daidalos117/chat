@@ -43,7 +43,7 @@ $_SESSION["room"] = $room;
 <header class="col-md-12">
     <div class="header-wrapper">
         <h1 class="text-center"><i class="fa fa-comment" aria-hidden="true"></i> CHAT</h1>
-        <h3><strong><?php echo $room[RoomsManager::COLUMN_NAME] ?></strong> </h3>
+        <h3><strong><?= $room[RoomsManager::COLUMN_NAME] ?></strong> </h3>
     </div>
 </header>
 
@@ -85,7 +85,7 @@ $_SESSION["room"] = $room;
                 <ul>
                 <?php $rooms = $roomManager->getRooms();
                  foreach($rooms as $room){?>
-                     <li><a href="?room=<?php echo $room["ID"] ?>"><?php echo $room[RoomsManager::COLUMN_NAME] ?></a> </li>
+                     <li><a href="?room=<?= $room["ID"] ?>"><?= $room[RoomsManager::COLUMN_NAME] ?></a> </li>
                  <?php } ?>
                 </ul>
                 <div class="col-md-2">
@@ -98,7 +98,7 @@ $_SESSION["room"] = $room;
         </div>
 
     </div>
-    <div class="col-md-9 content" id="content">
+    <div class="col-md-8 content" id="content">
 
         <div class="col-md-12 messages" id="messages">
             <div class="message hidden col-md-12" data-id="">
@@ -118,38 +118,38 @@ $_SESSION["room"] = $room;
 
             <?php
             $chatManager = new ChatManager();
-            $chats = $chatManager->getMessagesByRoom($room["ID"]);
+            $chats = $chatManager->getMessagesByRoom($room["ID"],20);
 
             foreach($chats as $message ){ ?>
-            <div class="message col-md-12" data-id="<?php echo $message["ID"] ?>">
-                <div class="col-md-1 img">
-                    <img src="https://api.adorable.io/avatars/44/<?php echo $message[UsersManager::USERNAME_COLUMN] ?>@adorable.io.png" alt="avatar" class="img-circle">
+            <div class="message col-md-12" data-id="<?= $message["ID"] ?>">
+                <div class="col-md-1 img text-center">
+                    <img src="https://api.adorable.io/avatars/44/<?= $message[UsersManager::USERNAME_COLUMN] ?>@adorable.io.png" alt="avatar" class="img-circle">
                 </div>
                 <div class="col-md-11 mes">
-                    <h3><?php echo $message[UsersManager::USERNAME_COLUMN] ?></h3>
+                    <h3><?= $message[UsersManager::USERNAME_COLUMN] ?></h3>
                     <?php $date = new DateTime($message[ChatManager::COLUMN_TME]) ?>
-                    <span class="date pull-right" data-toggle="tooltip" data-placement="top" title="<?php echo $date->format("d.m.Y") ?>">
+                    <span class="date pull-right" data-toggle="tooltip" data-placement="top" title="<?= $date->format("d.m.Y") ?>">
                         <i class="fa fa-clock-o" aria-hidden="true"></i>
                         <span class="actual-time">
-                            <?php echo $date->format("H:i:s") ?>
+                            <?= $date->format("H:i:s") ?>
                         </span>
                     </span>
-                    <p><?php echo $message[ChatManager::COLUMN_MESSAGE] ?></p>
+                    <p><?= $message[ChatManager::COLUMN_MESSAGE] ?></p>
                 </div>
             </div>
         <?php } ?>
 
         </div>
-
+        <hr class="col-md-12">
         <div class="new-message col-md-12">
-           <h5>Send new message</h5>
+           <h4>Send new message</h4>
             <form id="newMessage">
                 <div class="col-md-10">
                     <textarea class="form-control" name="message" placeholder="Write your message..." required></textarea>
                     <p class="help-block">We are now supporting <a href="http://www.emoji-cheat-sheet.com/" target="_new">emoji</a> :heart: :sunglasses:  :smile:  :+1: :clap:</p>
                 </div>
                 <div class="col-md-2 text-right">
-                    <input type="hidden" value="<?php echo $room["ID"] ?>" name="room" id="room-id">
+                    <input type="hidden" value="<?= $room["ID"] ?>" name="room" id="room-id">
                     <button type="submit" value="" class="btn btn-default " id="sendMessage">Post it <i class='fa fa-paper-plane-o'></i> </button>
                 </div>
             </form>
@@ -175,7 +175,6 @@ $_SESSION["room"] = $room;
 
     $(function(){
 
-        console.log(  $(".message.hidden").clone() );
 
         scrollToBottom();
 
@@ -184,7 +183,7 @@ $_SESSION["room"] = $room;
 
 
         setInterval(function(){
-            getMessages();
+           // getMessages();
         },1000 );
 
         setInterval(function(){

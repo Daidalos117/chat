@@ -19,18 +19,21 @@ class ChatManager
     /**
      * Returns messages based on room ID
      * @param $roomId
+     * @param $limit int
      * @return array
      */
-    public function getMessagesByRoom($roomId){
+    public function getMessagesByRoom($roomId, $limit){
         $query = Databaze::dotaz("SELECT ".self::TABLE_NAME.".*,".UsersManager::TABLE_NAME.".".UsersManager::USERNAME_COLUMN."
             FROM ".self::TABLE_NAME."
             LEFT JOIN ".UsersManager::TABLE_NAME."
             ON ".self::TABLE_NAME.".".self::COLUMN_USER."=".UsersManager::TABLE_NAME.".ID
             WHERE ".self::COLUMN_ROOM."= ?
-            ORDER by ".self::TABLE_NAME.".ID ASC
+            ORDER by ".self::TABLE_NAME.".ID DESC
+            LIMIT ".$limit."
             ",
             array($roomId));
         $data = $query->fetchAll(PDO::FETCH_ASSOC);
+        $data = array_reverse($data);
         return $data;
     }
 
