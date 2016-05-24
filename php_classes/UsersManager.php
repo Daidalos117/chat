@@ -12,6 +12,8 @@ class UsersManager {
         PASSWORD_COLUMN = "password",
         ROLE_COLUMN = "role_ID",
         LOGIN_HASH_COLUMN = "login_hash",
+        ADMIN = 0,
+        USER = 1,
         SALT = "1j9/32";
 
 
@@ -40,7 +42,7 @@ class UsersManager {
         $loginHash = sha1($params[0].self::SALT.$params[1]);
         $params[2] = $loginHash;
         $users = Databaze::dotaz("INSERT INTO ".self::TABLE_NAME." (".self::USERNAME_COLUMN.", ".self::PASSWORD_COLUMN.",".self::ROLE_COLUMN.",".self::LOGIN_HASH_COLUMN." )
-        VALUES (?,?,1,?)",$params);
+        VALUES (?,?,".self::USER.",?)",$params);
         return true;
     }
 

@@ -2,9 +2,12 @@
 session_start();
 mb_internal_encoding("UTF-8");
 
+
+
 function nactiTridu($trida)
 {
-require("php_classes/$trida.php");
+    $ajaxDir = (isset($ajax) && $ajax) ? "../" : "";
+require($ajaxDir."php_classes/$trida.php");
 }
 
 spl_autoload_register("nactiTridu");

@@ -6,9 +6,9 @@
  * Time: 16:25
  * Project: chat
  */
-
+$ajax = true;
 $dontIncludeError = true;
-require_once "include.inc";
+require_once "../include.inc";
 
 $lastMessage = $_POST["id"];
 $room = $_SESSION["room"];

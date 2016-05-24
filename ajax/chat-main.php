@@ -6,7 +6,8 @@
  * Project: chat
  */
 
-require_once "include.inc";
+$ajax = true;
+require_once "../include.inc";
 $roomsManager = new RoomsManager();
 $rooms = $roomsManager->getRooms();
 

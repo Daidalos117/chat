@@ -6,8 +6,9 @@
  * Time: 18:29
  * Project: chat
  */
+$ajax = true;
 $dontIncludeError = true;
-require_once "include.inc";
+require_once "../include.inc";
 
 $logMan = new LoggedInManager();
 

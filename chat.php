@@ -8,6 +8,7 @@ if(!isset($_GET["room"])){
 }
 $roomManager = new RoomsManager();
 $room = $roomManager->getRoom($room["id"]);
+
 if(!$room)  header("Location: 404.html");
 $_SESSION["room"] = $room;
 
@@ -82,17 +83,38 @@ $_SESSION["room"] = $room;
                 Rooms
             </div>
             <div class="panel-body">
-                <ul>
-                <?php $rooms = $roomManager->getRooms();
-                 foreach($rooms as $room){?>
-                     <li><a href="?room=<?= $room["ID"] ?>"><?= $room[RoomsManager::COLUMN_NAME] ?></a> </li>
-                 <?php } ?>
-                </ul>
+                <table class="table rooms-list" id="rooms-list">
+                    <tbody>
+                    <?php $rooms = $roomManager->getRooms();
+                     foreach($rooms as $roome){?>
+                         <?php
+                         $delete = "";
+                         if($roomManager->isDelete($roome, $user)) {
+                             {
+                                 $delete = "<a id='delete-room' data-room-id='".$roome["ID"]."'>
+                                            <i class='fa fa-trash-o' ></i>
+                                        </a>";
+                             }
+
+                         }
+                         ?>
+                         <tr>
+                             <td><a href="?room=<?= $roome["ID"] ?>"><?= $roome[RoomsManager::COLUMN_NAME] ?></a></td>
+                             <td><?= $delete ?></td>
+                         </tr>
+                     <?php } ?>
+                    </tbody>
+                </table>
+
+
                 <div class="col-md-2">
                     <a class="add-room"><span class="fa fa-plus"></span></a>
                 </div>
                 <div class="col-md-10">
-                    <input type="text" name="new-room" class="form-control">
+                    <form id="newRoomForm">
+                        <input type="text" name="new-room" required class="form-control">
+                        <input type="submit" class="btn btn-xs btn-default" value="Save" id="new-room">
+                    </form>
                 </div>
             </div>
         </div>
@@ -118,6 +140,7 @@ $_SESSION["room"] = $room;
 
             <?php
             $chatManager = new ChatManager();
+
             $chats = $chatManager->getMessagesByRoom($room["ID"],20);
 
             foreach($chats as $message ){ ?>
@@ -191,7 +214,7 @@ $_SESSION["room"] = $room;
             setTimeout(function(){
                 getLogged();
             },200);
-
+            getRooms();
         },20000 );
 
 
@@ -205,7 +228,7 @@ $_SESSION["room"] = $room;
 
             $.ajax({
                     type        : 'POST',
-                    url         : 'new-message.php',
+                    url         : 'ajax/new-message.php',
                     data        : formData,
                     dataType    : 'json'
                 })
@@ -220,6 +243,32 @@ $_SESSION["room"] = $room;
                         data.date = readable.date;
                         data.time = readable.time;
                         addMessage(data);
+                    }
+
+
+
+                });
+
+        });
+
+        /** Submits new room */
+        $('#newRoomForm').submit(function(e) {
+            e.preventDefault();
+
+            var formData = $('#newRoomForm').serialize();
+
+            $.ajax({
+                    type        : 'POST',
+                    url         : 'ajax/new-room.php',
+                    data        : formData,
+                    dataType    : 'json'
+                })
+
+                .done(function(data) {
+
+                    if(data ){
+                        $('#newRoomForm')[0].reset();
+                        getRooms();
                     }
 
 
@@ -245,7 +294,7 @@ $_SESSION["room"] = $room;
          * */
         function getLogged(){
             $.ajax({
-                url         : 'get-logged-users.php',
+                url         : 'ajax/get-logged-users.php',
                 dataType    : 'json'
             }).done(function(data) {
                 if(data){
@@ -259,6 +308,37 @@ $_SESSION["room"] = $room;
             });
         }
 
+        /**
+         * Gets currently logged users
+         * */
+        function getRooms(){
+            console.log("getrooms");
+            $.ajax({
+                url         : 'ajax/get-rooms.php',
+                dataType    : 'json'
+            }).done(function(data) {
+                console.log(data);
+                if(data){
+                    var $list = $("#rooms-list tbody");
+                    $list.html("");
+                    var html = "";
+                    $.each(data,function(key,value){
+                        html += "<tr>";
+                        html += "<td><a href='?room="+value.ID+"'>"+value.name+"</a></td>";
+                        if(value.delete){
+                            html += "  <td><a id='delete-room' data-room-id='"+value.ID+"'><i class='fa fa-trash-o' ></i></a></td>";
+                        }else{
+                            html += "<td></td>";
+                        }
+                        html += "</tr>";
+                    })
+                    $list.html(html);
+
+                }
+
+            });
+        }
+
 
 
         /**
@@ -266,7 +346,7 @@ $_SESSION["room"] = $room;
          * */
         function loggedIn(){
             $.ajax({
-                url         : 'logged-in.php'
+                url         : 'ajax/logged-in.php'
             })
         }
 
@@ -304,7 +384,7 @@ $_SESSION["room"] = $room;
             data.id = lastId;
             $.ajax({
                     type        : 'POST',
-                    url         : 'messages.php',
+                    url         : 'ajax/messages.php',
                     data        : data,
                     dataType    : 'json'
                 })
@@ -327,7 +407,21 @@ $_SESSION["room"] = $room;
                 });
         }
 
+        /** Delete room */
+        $("#rooms-list").on("click","#delete-room",function(){
+            var id = $(this).data("room-id");
+            $.ajax({
+                    type        : 'POST',
+                    url         : 'ajax/delete-room.php',
+                    data        : "id="+id,
+                    dataType    : 'json'
+                })
 
+                .done(function(data) {
+                    getRooms();
+
+                });
+        });
 
         /** Finds last Message */
         function findLastMessage(){
