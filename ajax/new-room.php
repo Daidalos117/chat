@@ -12,10 +12,17 @@ require_once "../include.inc";
 
 $roomsManager = new RoomsManager();
 $room = strip_tags($_POST["new-room"]);
+if(mb_strlen($room) > 20) {
+    echo json_encode( array("error" => "To long") );
+    die();
+}
+
+
+echo $insert;
 try{
     $insert = $roomsManager->addRoom($room,$user["ID"]);
-    $mm = array("message" => $message, "ID" => $insert , "username" => $user[UsersManager::USERNAME_COLUMN]);
-    echo json_encode( $mm );
+
+    echo json_encode( $insert );
 }catch(Exception  $e){
     echo json_encode( array("error" => $e) );
 }

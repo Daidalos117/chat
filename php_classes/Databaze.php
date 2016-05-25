@@ -15,7 +15,7 @@ class Databaze {
 
     private static $nastaveni = Array(
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, //na produkcnim serveru vypnout !!
-        PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8" //nastavuje utf - 8
+
     );
 
 

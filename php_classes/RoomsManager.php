@@ -42,6 +42,7 @@ class RoomsManager
      * @throws Exception
      */
     public function addRoom($room, $userId){
+
         $query = Databaze::dotaz("INSERT INTO ".self::TABLE_NAME." VALUES (0,?,?,0)",[$room, $userId]);
         if($query) throw new Exception("New room cant be added");
         else return Databaze::getLastID();
@@ -60,6 +61,12 @@ class RoomsManager
     }
 
 
+    /**
+     * Can be this room deleted?
+     * @param $room
+     * @param $user
+     * @return bool
+     */
     public function isDelete($room, $user){
         if($room[RoomsManager::COLUMN_USER] == $user["ID"] or $user[UsersManager::ROLE_COLUMN] == UsersManager::ADMIN) {
             if($room["ID"] != 1) return true;
