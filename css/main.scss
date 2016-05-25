@@ -25,7 +25,7 @@ html,body{
 
 header{
   background:{
-    image: url("../img/startup-photos.jpg");
+    //image: url("../img/startup-photos.jpg");
     size: cover;
     position: 0 400px ;
     attachment: fixed;
@@ -33,13 +33,13 @@ header{
   font-family: 'Raleway', sans-serif;
   padding: 0px !important;
   color: white;
-  height: 300px;
+  height: 100px;
   margin-bottom: 50px;
   h1{
-    font-size: 5em;
+    font-size: 3em;
     font-weight: 700;
     margin-top: 0px;
-    padding-top: 100px;
+    padding-top: 30px;
     letter-spacing: 1.2;
   }
   h3{
@@ -47,7 +47,7 @@ header{
     color: white;
     letter-spacing: 1.1;
     color: $color-positive;
-    font-size: 3em;
+    font-size: 2em;
   }
 
   .header-wrapper{
@@ -102,7 +102,7 @@ header{
 
 .messages{
 
-  max-height: 600px;
+  max-height: 400px;
   overflow: scroll;
   margin-bottom: 10px;
 
@@ -209,7 +209,9 @@ footer{
   color: $color-light;
 }
 
-
+.hides{
+  display:none;
+}
 
 
 

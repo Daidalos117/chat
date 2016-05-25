@@ -18,8 +18,8 @@ function nactiTridu($trida)
 spl_autoload_register("nactiTridu");
 
 
-
-Databaze::pripoj('localhost', 'root', 'root', 'chat');
+#Databaze::pripoj('localhost', 'root', 'root', 'chat');
+Databaze::pripoj('wm98.wedos.net', 'a18034_chat', '7qQjgVrw', 'd18034_chat');
 
 
 

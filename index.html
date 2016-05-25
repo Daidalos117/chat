@@ -58,7 +58,7 @@
 
         <script src="js/vendor/bootstrap.min.js"></script>
 
-        <script src="js/main.js"></script>
+
         <script>
             $(function(){
 
@@ -70,6 +70,7 @@
                 });
 
                 $('.register-form').submit(function(e) {
+                    console.log("odeslano");
                     e.preventDefault();
 
                     var formData = $('.register-form').serialize();

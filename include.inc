@@ -17,7 +17,8 @@ if(!isset($dontIncludeError)){
 }
 
 
-Databaze::pripoj('localhost', 'root', 'root', 'chat');
+#Databaze::pripoj('localhost', 'root', 'root', 'chat');
+Databaze::pripoj('wm98.wedos.net', 'a18034_chat', '7qQjgVrw', 'd18034_chat');
 
 date_default_timezone_set("Europe/Prague");
 
