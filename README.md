@@ -11,8 +11,6 @@ Written mainly in
 TODO 
 ----
 
-Logged users
-Rooms
-Adding rooms
-infinite scroll
-Deleting messages
+
+**infinite scroll
+**Deleting messages
